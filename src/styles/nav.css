@@ -147,6 +147,16 @@
   .hamburger { padding: .3rem }
   .hamburger span { width: 20px }
 }
+
+@media (max-width: 360px) {
+  .nav { padding: .62rem 3vw; gap: .55rem }
+  .logoName { display: none }
+  .logoImg { width: 30px; height: 30px }
+  .navRight { margin-left: auto; gap: .3rem }
+  .cartBtn { padding: .35rem .48rem; font-size: .5rem; letter-spacing: .05em }
+  .cartCount { min-width: 14px; padding: .08rem .24rem; font-size: .46rem }
+  .hamburger span { width: 18px }
+}
 @media (min-width: 769px) {
   .mobileBackdrop, .mobileMenu { display: none !important }
 }
