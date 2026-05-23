@@ -20,7 +20,7 @@
     font-size: .54rem;
     letter-spacing: .18em;
     padding-right: 2.8rem;
-    animation: none;
+    animation: run 24s linear infinite;
   }
 }
 

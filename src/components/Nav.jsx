@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Nav({ cartCount, bounce, onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
+  const cartCountText = cartCount > 99 ? "99+" : String(cartCount);
 
   return (
     <>
@@ -32,7 +33,7 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
             <span className="cartLabel">Cart</span>
-            <span className="cartCount">{cartCount}</span>
+            <span className="cartCount">{cartCountText}</span>
           </button>
 
           <button
@@ -70,7 +71,7 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
                   <img src="/logo.jpg" alt="Rikky's" className="logoImg" />
                   <span className="logoName">RIKKY<em>'S</em></span>
                 </a>
-                <button type="button" className="mobileClose" onClick={close} aria-label="Close menu">✕</button>
+                <button type="button" className="mobileClose" onClick={close} aria-label="Close menu">X</button>
               </div>
 
               <ul className="mobileLinks">
@@ -109,7 +110,7 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
                 </button>
               </motion.div>
 
-              <p className="mobileFootNote">15% OFF first order · Code: <strong>RIKKY15</strong></p>
+              <p className="mobileFootNote">15% OFF first order - Code: <strong>RIKKY15</strong></p>
             </motion.div>
           </>
         )}
