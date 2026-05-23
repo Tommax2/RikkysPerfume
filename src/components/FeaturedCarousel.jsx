@@ -5,13 +5,13 @@ const featured = [
   {
     id: 1, name: "Khamrah Qahwa", sub: "Lattafa",
     notes: "Oud · Coffee · Vanilla",
-    price: "₦28,000", badge: "Bestseller",
+    price: "₦34,000", badge: "Bestseller",
     accent: "#C9A96E", image: "/EAU%20DE%20PARFUM.jpg",
   },
   {
     id: 2, name: "9PM Rebel", sub: "Afnan",
     notes: "Apple · Cardamom · Amber",
-    price: "₦22,500", badge: "New",
+    price: "₦50,000", badge: "New",
     accent: "#C84050", image: "/9pm%20rebel.jpg",
   },
   {

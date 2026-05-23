@@ -83,7 +83,7 @@ export default function App() {
       `Total: ${NAIRA}${total.toLocaleString("en-NG")}`,
       "Please confirm availability and delivery details. Thank you.",
     ].join("\n");
-    window.open(`https://wa.me/2349046120002?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/2348060858306?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
     setCartOpen(false);
   };
   const orbs = useMemo(() => Array.from({ length: 5 }), []);

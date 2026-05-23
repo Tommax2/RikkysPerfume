@@ -25,7 +25,7 @@ const WaIcon = () => (
 );
 
 export default function WhatsApp({ cartItems = [] }) {
-  const number = "2349046120002";
+  const number = "2348060858306";
   const msg = encodeURIComponent(buildOrderMessage(cartItems));
 
   return (
