@@ -1,8 +1,25 @@
-const NAIRA = "\u20A6";
+import { useEffect } from "react";
+
+const NAIRA = "₦";
 const formatNaira = (value) => `${NAIRA}${value.toLocaleString("en-NG")}`;
 
 export default function CartDrawer({ open, items, onClose, onRemove, onClear, onCheckout }) {
   const total = items.reduce((sum, item) => sum + item.priceValue * item.qty, 0);
+
+  /* lock body scroll while drawer is open */
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [open]);
 
   return (
     <>
@@ -23,7 +40,7 @@ export default function CartDrawer({ open, items, onClose, onRemove, onClear, on
             <article key={item.id} className="cartItem">
               <div>
                 <h3>{item.name} <em>{item.sub}</em></h3>
-                <p>{item.qty} x {item.price}</p>
+                <p>{item.qty} × {item.price}</p>
               </div>
               <button type="button" onClick={() => onRemove(item.id)}>Remove</button>
             </article>
@@ -43,4 +60,3 @@ export default function CartDrawer({ open, items, onClose, onRemove, onClear, on
     </>
   );
 }
-
