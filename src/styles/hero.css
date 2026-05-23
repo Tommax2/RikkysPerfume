@@ -1,0 +1,184 @@
+.hero {
+  min-height: 100vh;
+  padding: calc(6rem + var(--banner-h, 44px)) 4vw 4rem;
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  position: relative; gap: 3rem;
+}
+
+/* Layered background */
+.heroBg {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.heroBg::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(106,13,173,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(106,13,173,.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 60% 40%, black 20%, transparent 72%);
+}
+.noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.022'/%3E%3C/svg%3E");
+}
+
+/* ── Left: text ───────────────────────────────────────── */
+.heroText { z-index: 1 }
+
+.heroTag {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 1.5rem;
+  background: rgba(106,13,173,.07); padding: .38rem .95rem;
+  border-radius: 100px; border: 1px solid rgba(106,13,173,.18);
+}
+.tagDot {
+  width: 6px; height: 6px; background: var(--rose);
+  border-radius: 50%; flex-shrink: 0;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1) }
+  50% { opacity: .5; transform: scale(.7) }
+}
+
+.heroText h1 {
+  font: 300 clamp(2.8rem, 7.5vw, 6rem) / 1 var(--serif);
+  margin-bottom: 1.5rem; color: var(--text);
+}
+.heroText h1 em { color: var(--rose); font-style: italic }
+
+.heroSub {
+  color: var(--muted); font-size: .82rem; letter-spacing: .06em;
+  max-width: 44ch; margin-bottom: 2rem; line-height: 1.85;
+}
+
+.discountPill {
+  display: inline-flex; align-items: center; gap: .85rem;
+  background: rgba(106,13,173,.07); border: 1px solid rgba(106,13,173,.18);
+  border-radius: 100px; padding: .6rem 1.2rem; margin-bottom: 2rem;
+  font-size: .72rem; letter-spacing: .05em; color: var(--muted);
+}
+.discountPct {
+  background: var(--rose); color: #FAF8FC;
+  padding: .22rem .75rem; border-radius: 100px;
+  font-weight: 700; font-size: .64rem; letter-spacing: .08em;
+}
+.discountPill > span:last-child strong { color: var(--rose) }
+
+.heroBtns { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 2.2rem }
+
+.cta {
+  color: #FAF8FC; background: var(--rose); text-decoration: none;
+  padding: 1rem 2rem; font-size: .62rem; letter-spacing: .26em;
+  text-transform: uppercase; display: inline-block;
+  position: relative; overflow: hidden; transition: background .3s;
+}
+.cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,.18);
+  transform: translateX(-110%) skewX(-18deg); transition: transform .45s;
+}
+.cta:hover { background: var(--rose-hi) }
+.cta:hover::before { transform: translateX(110%) skewX(-18deg) }
+
+.cta-ghost {
+  color: var(--rose); text-decoration: none; font-size: .62rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(106,13,173,.4); padding-bottom: 3px;
+  transition: border-color .3s, color .3s;
+}
+.cta-ghost:hover { border-color: var(--rose); color: var(--rose-hi) }
+
+.trustRow { display: flex; gap: 1.6rem; flex-wrap: wrap }
+.trustBadge {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .62rem; letter-spacing: .1em; color: var(--muted);
+}
+.trustIcon { color: var(--rose); font-size: .85rem }
+
+/* ── Right: visual ────────────────────────────────────── */
+.heroVisual {
+  position: relative; z-index: 1;
+  display: flex; justify-content: center; align-items: center;
+  padding: 3rem 4rem;
+}
+
+.heroProductFrame {
+  width: min(340px, 90%); height: 420px; border-radius: 24px;
+  overflow: hidden; position: relative;
+  box-shadow: 0 40px 90px rgba(106,13,173,.18), 0 0 0 1px rgba(106,13,173,.1);
+  animation: float 7s ease-in-out infinite;
+}
+.heroProductBg {
+  position: absolute; inset: 0;
+  background: linear-gradient(145deg, #EDE7F6, #F3D9FF);
+}
+.heroProductImg {
+  width: 100%; height: 100%; object-fit: cover;
+  position: relative; z-index: 1;
+}
+.heroProductBadge {
+  position: absolute; bottom: 1.2rem; left: 1.2rem; right: 1.2rem; z-index: 2;
+  background: rgba(59,10,69,.88); backdrop-filter: blur(12px);
+  padding: .75rem 1rem; border-radius: 10px;
+  border: 1px solid rgba(181,124,255,.3);
+}
+.heroProductBadge span {
+  font-size: .52rem; letter-spacing: .22em; color: rgba(181,124,255,.8);
+  text-transform: uppercase; display: block; margin-bottom: .2rem;
+}
+.heroProductBadge strong {
+  font-family: var(--serif); font-size: 1.1rem; color: #FAF8FC;
+  font-weight: 300;
+}
+
+/* Floating mini-cards */
+.heroFloatCard {
+  position: absolute; background: #fff;
+  border-radius: 12px; padding: .65rem .8rem;
+  display: flex; align-items: center; gap: .65rem;
+  box-shadow: 0 12px 40px rgba(106,13,173,.18);
+  border: 1px solid rgba(106,13,173,.1);
+}
+.heroFloatCard img {
+  width: 46px; height: 46px; object-fit: cover; border-radius: 8px; flex-shrink: 0;
+}
+.floatName { font-size: .68rem; font-weight: 600; color: var(--text); letter-spacing: .04em }
+.floatPrice { font-size: .63rem; color: var(--rose); font-family: var(--serif); margin-top: .15rem }
+
+.heroFloatCard1 {
+  top: 1rem; right: .5rem;
+  animation: floatCard1 5s ease-in-out infinite;
+}
+.heroFloatCard2 {
+  bottom: 2.5rem; left: .5rem;
+  animation: floatCard2 6s ease-in-out infinite;
+}
+@keyframes floatCard1 {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-10px) }
+}
+@keyframes floatCard2 {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(10px) }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) }
+  50%       { transform: translateY(-18px) }
+}
+
+/* Vertical side text */
+.heroSide {
+  position: absolute; right: 2.5rem; bottom: 4rem; z-index: 1;
+  writing-mode: vertical-rl; font-size: .52rem; letter-spacing: .38em;
+  color: rgba(106,13,173,.3); text-transform: uppercase;
+  display: flex; align-items: center; gap: .8rem;
+}
+.heroSide::before {
+  content: ''; display: block; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(106,13,173,.28));
+}

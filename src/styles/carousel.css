@@ -1,0 +1,148 @@
+/* ── Featured Carousel ───────────────────────────────────── */
+.fcarousel {
+  position: relative;
+  padding: 3.5rem 4vw 3rem;
+  background: linear-gradient(180deg, rgba(59,10,69,.0) 0%, rgba(59,10,69,.08) 100%);
+  border-bottom: 1px solid rgba(181,124,255,.1);
+  overflow: hidden;
+}
+
+/* header row */
+.fcarouselHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.fcarouselLabel {
+  font-size: .58rem; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(181,124,255,.65);
+}
+.fcarouselArrows { display: flex; gap: .4rem }
+.fcarouselArrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid rgba(181,124,255,.2);
+  background: rgba(181,124,255,.05);
+  color: rgba(181,124,255,.6);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.fcarouselArrow:hover { border-color: var(--rose-hi); color: var(--rose-hi) }
+
+/* ── Track: positions cards absolutely so they can animate ── */
+.fcarouselTrack {
+  position: relative;
+  height: 400px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Card ── */
+.fcard {
+  position: absolute;
+  width: min(320px, 80vw);
+  border-radius: 16px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(181,124,255,.14);
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform, opacity;
+  transition: border-color .3s;
+}
+.fcard--active {
+  border-color: rgba(181,124,255,.28);
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+/* image */
+.fcardImgWrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: rgba(181,124,255,.06);
+}
+.fcardGlow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, var(--ac, rgba(181,124,255,.3)) 0%, transparent 70%);
+  opacity: .5; pointer-events: none;
+}
+.fcardImg {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  display: block;
+  transition: transform .6s ease;
+}
+.fcard--active .fcardImg:hover { transform: scale(1.04) }
+.fcardBadge {
+  position: absolute; top: 12px; right: 12px;
+  padding: .22rem .65rem;
+  border-radius: 30px;
+  background: var(--ac, var(--rose));
+  font-size: .5rem; letter-spacing: .18em; text-transform: uppercase;
+  color: #fff; font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0,0,0,.25);
+}
+
+/* body */
+.fcardBody {
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+.fcardNotes {
+  font-size: .57rem; letter-spacing: .1em;
+  color: rgba(181,124,255,.5); margin-bottom: .4rem;
+}
+.fcardName {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.15rem; color: rgba(230,215,255,.92);
+  letter-spacing: .01em; margin-bottom: .85rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fcardName em { font-style: italic; color: rgba(181,124,255,.75) }
+.fcardFoot {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.fcardPrice {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+  color: rgba(230,215,255,.9);
+}
+.fcardBtn {
+  display: flex; align-items: center; gap: .35rem;
+  padding: .42rem .9rem;
+  border-radius: 6px; border: none;
+  background: var(--ac, var(--rose));
+  color: #fff;
+  font-family: var(--sans); font-size: .6rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity .2s, transform .18s;
+}
+.fcardBtn:hover { opacity: .85; transform: translateY(-1px) }
+
+/* dots */
+.fcarouselDots {
+  display: flex; align-items: center; justify-content: center;
+  gap: .45rem; margin-top: 1.8rem;
+}
+.fcarouselDot {
+  width: 6px; height: 6px; border-radius: 50%;
+  border: none; background: rgba(181,124,255,.25);
+  cursor: pointer; padding: 0;
+  transition: background .3s, width .3s, border-radius .3s;
+}
+.fcarouselDot.active {
+  width: 20px; border-radius: 3px;
+  background: var(--rose-hi);
+  box-shadow: 0 0 8px rgba(181,124,255,.45);
+}
+
+/* progress bar */
+.fcarouselBar {
+  position: absolute; bottom: 0; left: 0;
+  height: 2px; width: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--rose-hi));
+  transform-origin: left;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .fcarouselTrack { height: 360px }
+  .fcardImgWrap   { height: 200px }
+}

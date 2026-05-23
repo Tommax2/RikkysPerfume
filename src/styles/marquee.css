@@ -1,0 +1,13 @@
+.marquee {
+  display: flex; overflow: hidden;
+  border-block: 1px solid rgba(106, 13, 173, .18);
+  padding: .9rem 0; white-space: nowrap;
+  background: rgba(59, 10, 69, .9); backdrop-filter: blur(4px);
+  position: relative; z-index: 1;
+}
+.marquee div {
+  padding-right: 4rem; letter-spacing: .26em;
+  color: rgba(181, 124, 255, .75); font-size: .6rem;
+  animation: run 26s linear infinite; flex-shrink: 0;
+}
+.marquee div:nth-child(2) { animation-delay: -13s }

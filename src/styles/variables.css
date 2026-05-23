@@ -1,0 +1,94 @@
+:root {
+  --banner-h: 44px; /* updated by JS when banner is dismissed */
+
+  /* ── Brand palette: Royal Purple ────────────────────── */
+  --black:   #FAF8FC;   /* page background */
+  --deep:    #EDE7F6;   /* card / surface background */
+  --surface: #F3D9FF;   /* soft pink highlight */
+  --plum:    #3B0A45;   /* deep plum — nav & footer */
+
+  --rose:    #6A0DAD;   /* Royal Purple — primary accent */
+  --rose-hi: #B57CFF;   /* Luxury Lavender — hover */
+  --gold:    #D4A373;   /* Rose Gold — premium accent */
+  --gold-hi: #e8c49a;
+  --brown:   #D4A373;
+
+  --cream:   #FAF8FC;   /* light text (on dark sections: nav/footer/cart) */
+  --muted:   #7a6882;   /* muted text on light backgrounds */
+  --text:    #1F1B24;   /* primary dark text */
+
+  --serif: "Cormorant Garamond", serif;
+  --sans:  "Josefin Sans", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { width: 100%; position: relative; z-index: 1 }
+
+/* ── Custom cursor ───────────────────────────────────── */
+@media (pointer: fine) {
+  * { cursor: none !important }
+
+  .cursorDot {
+    position: fixed; top: -4px; left: -4px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--rose-hi);
+    pointer-events: none; z-index: 9999;
+    will-change: transform;
+  }
+  .cursorDot.cursorHide { opacity: 0 }
+
+  .cursorRing {
+    position: fixed; top: -18px; left: -18px;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(181,124,255,.55);
+    pointer-events: none; z-index: 9998;
+    will-change: transform;
+    transition: width .25s, height .25s, top .25s, left .25s, border-color .25s;
+  }
+  .cursorRing.cursorExpand {
+    width: 52px; height: 52px;
+    top: -26px; left: -26px;
+    border-color: var(--rose-hi);
+  }
+}
+
+/* ── Scroll-to-top ───────────────────────────────────── */
+.scrollTop {
+  position: fixed; bottom: 5.5rem; right: 1.4rem; z-index: 120;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(59,10,69,.92);
+  border: 1px solid rgba(181,124,255,.35);
+  color: rgba(181,124,255,.8);
+  display: grid; place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  transition: border-color .25s, color .25s, background .25s;
+}
+.scrollTop:hover {
+  border-color: var(--rose-hi); color: var(--rose-hi);
+  background: rgba(59,10,69,.98);
+}
+
+/* ── Background orbs ─────────────────────────────────── */
+.bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden }
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); opacity: .07;
+  animation: orbDrift calc(18s + var(--i, 0) * 6s) ease-in-out infinite alternate;
+}
+.orb:nth-child(1) { width: 560px; height: 560px; background: #B57CFF; top: -15%; left: -8% }
+.orb:nth-child(2) { width: 420px; height: 420px; background: #6A0DAD; top: 25%; right: -12%; animation-delay: -4s }
+.orb:nth-child(3) { width: 380px; height: 380px; background: #D4A373; bottom: 15%; left: 15%; animation-delay: -8s }
+.orb:nth-child(4) { width: 320px; height: 320px; background: #F3D9FF; bottom: -8%; right: 25%; animation-delay: -12s }
+.orb:nth-child(5) { width: 500px; height: 500px; background: #B57CFF; top: 55%; left: 40%; animation-delay: -16s }

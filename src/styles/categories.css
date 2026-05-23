@@ -1,0 +1,37 @@
+.catBar {
+  padding: 3rem 4vw 1.8rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;
+}
+
+.catTabs {
+  display: flex; gap: .3rem;
+  background: rgba(237, 231, 246, .9);
+  border: 1px solid rgba(106, 13, 173, .2);
+  padding: .32rem; border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.catTab {
+  background: none; border: none; color: var(--muted);
+  padding: .62rem 1.4rem; font-family: var(--sans);
+  font-size: .61rem; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; border-radius: 999px;
+  transition: color .3s, background .3s, transform .22s ease;
+}
+.catTab:hover:not(.active) { color: var(--text); background: rgba(106,13,173,.08); transform: translateY(-1px) }
+.catTab.active {
+  color: #FAF8FC; background: var(--rose);
+  animation: tabPop .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.catCount {
+  color: rgba(106,13,173,.8);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: .45rem .7rem;
+  border: 1px solid rgba(106,13,173,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.45);
+}

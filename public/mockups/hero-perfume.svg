@@ -1,0 +1,54 @@
+<svg width="420" height="760" viewBox="0 0 420 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glass" x1="80" y1="0" x2="340" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E1820"/>
+      <stop offset="0.45" stop-color="#1C1018"/>
+      <stop offset="1" stop-color="#0E0810"/>
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#F0C0D0"/>
+      <stop offset="0.6" stop-color="#C9788E"/>
+      <stop offset="1" stop-color="#8B4E68"/>
+    </linearGradient>
+    <linearGradient id="sideHL" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop stop-color="white" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="topShine" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#C9788E" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#C9788E" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="55%" r="50%" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9788E" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#C9788E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="210" cy="430" rx="200" ry="280" fill="url(#glow)"/>
+  <rect x="162" y="60" width="96" height="14" rx="4" fill="#F0C0D0"/>
+  <rect x="148" y="74" width="124" height="56" rx="6" fill="url(#capGrad)"/>
+  <rect x="152" y="78" width="20" height="48" rx="4" fill="white" fill-opacity="0.14"/>
+  <rect x="154" y="128" width="112" height="8" rx="2" fill="#C9788E" fill-opacity="0.55"/>
+  <rect x="170" y="136" width="80" height="50" rx="4" fill="#221218"/>
+  <rect x="170" y="136" width="80" height="50" rx="4" stroke="#C9788E" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="174" y="138" width="16" height="46" fill="white" fill-opacity="0.05"/>
+  <path d="M108 186 Q106 200 98 222 L98 648 Q98 666 116 674 L304 674 Q322 666 322 648 L322 222 Q314 200 312 186 Z" fill="url(#glass)" stroke="#C9788E" stroke-opacity="0.42" stroke-width="2"/>
+  <path d="M100 225 L100 644 Q100 660 110 668 L124 668 L124 225 Q122 214 114 204 Z" fill="url(#sideHL)"/>
+  <path d="M108 186 Q106 200 98 222 L322 222 Q314 200 312 186 Z" fill="url(#topShine)"/>
+  <rect x="128" y="290" width="164" height="254" rx="4" fill="#C9788E" fill-opacity="0.05" stroke="#C9788E" stroke-opacity="0.52" stroke-width="1.5"/>
+  <rect x="137" y="300" width="146" height="234" rx="2" fill="none" stroke="#C9788E" stroke-opacity="0.13" stroke-width="0.8"/>
+  <line x1="144" y1="322" x2="276" y2="322" stroke="#C9788E" stroke-opacity="0.2" stroke-width="1"/>
+  <line x1="144" y1="512" x2="276" y2="512" stroke="#C9788E" stroke-opacity="0.2" stroke-width="1"/>
+  <path d="M146 312 L146 302 L156 302" stroke="#C9788E" stroke-opacity="0.45" stroke-width="1.2" fill="none"/>
+  <path d="M274 312 L274 302 L264 302" stroke="#C9788E" stroke-opacity="0.45" stroke-width="1.2" fill="none"/>
+  <path d="M146 502 L146 512 L156 512" stroke="#C9788E" stroke-opacity="0.45" stroke-width="1.2" fill="none"/>
+  <path d="M274 502 L274 512 L264 512" stroke="#C9788E" stroke-opacity="0.45" stroke-width="1.2" fill="none"/>
+  <text x="210" y="354" text-anchor="middle" fill="#C9788E" fill-opacity="0.5" font-size="14" letter-spacing="8" font-family="Georgia, serif">MAISON</text>
+  <text x="210" y="420" text-anchor="middle" fill="#E0A0B4" font-size="42" letter-spacing="10" font-family="Georgia, serif">RIKKY'S</text>
+  <text x="210" y="460" text-anchor="middle" fill="#A07888" font-size="14" letter-spacing="6" font-family="Arial, sans-serif">NIGHT OUD</text>
+  <line x1="160" y1="482" x2="188" y2="482" stroke="#C9788E" stroke-opacity="0.32" stroke-width="0.8"/>
+  <rect x="205" y="476" width="10" height="10" fill="none" stroke="#C9788E" stroke-opacity="0.55" stroke-width="1" transform="rotate(45 210 481)"/>
+  <line x1="232" y1="482" x2="260" y2="482" stroke="#C9788E" stroke-opacity="0.32" stroke-width="0.8"/>
+  <rect x="100" y="632" width="220" height="42" rx="6" fill="#C9788E" fill-opacity="0.07"/>
+  <ellipse cx="210" cy="680" rx="104" ry="10" fill="#C9788E" fill-opacity="0.1"/>
+</svg>

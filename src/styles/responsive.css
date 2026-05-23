@@ -1,0 +1,61 @@
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .benefitsGrid { grid-template-columns: repeat(2, 1fr) }
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 5rem }
+  .heroVisual { display: none }
+  .heroSide { display: none }
+}
+
+@media (max-width: 800px) {
+  .collectionShell { width: min(1200px, 94vw) }
+  .collectionShell .catBar { padding: 1.4rem 1rem 1rem }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .grid { gap: .8rem; padding: 0 .9rem 1rem }
+  .catBar { align-items: stretch; gap: .8rem }
+  .catTabs {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .catTab { white-space: nowrap; padding: .58rem 1rem }
+  .catCount { align-self: flex-start }
+  .meta { padding: 1.35rem 1.15rem }
+  .meta h3 { font-size: 1.6rem }
+  .cardBottom { gap: .8rem }
+  .stats { flex-wrap: wrap; gap: 2rem }
+  .statDiv { display: none }
+  .testGrid { grid-template-columns: 1fr }
+  .footerTop { grid-template-columns: 1fr }
+  .footerLinks { grid-template-columns: repeat(2, 1fr) }
+}
+
+@media (max-width: 540px) {
+  .collectionShell { width: min(1200px, 95vw); border-radius: 14px }
+  .grid { grid-template-columns: 1fr }
+  .grid { gap: .75rem; padding: 0 .75rem .9rem }
+  .catBar { flex-direction: column; align-items: flex-start }
+  .catTabs { width: 100% }
+  .catTab { font-size: .56rem; letter-spacing: .14em; padding: .54rem .88rem }
+  .catCount { font-size: .54rem; letter-spacing: .14em; padding: .4rem .58rem }
+  .meta { padding: 1.15rem 1rem }
+  .metaTop { flex-wrap: wrap; gap: .5rem }
+  .meta h3 { font-size: 1.45rem; margin: .45rem 0 .52rem }
+  .meta h4 { font-size: .58rem; line-height: 1.5 }
+  .cardBottom { flex-wrap: wrap; align-items: flex-start; margin-top: 1rem; padding-top: .9rem }
+  .addBtn { width: 100%; justify-content: center }
+  .journalForm { flex-direction: column }
+  .journalForm input {
+    min-width: unset;
+    border-right: 1px solid rgba(106,13,173,.25);
+    border-bottom: none;
+  }
+  .benefitsGrid { grid-template-columns: 1fr }
+  .footerLinks { grid-template-columns: 1fr }
+  .footerBottom { flex-direction: column; align-items: flex-start }
+  .discountPill { flex-direction: column; align-items: flex-start; border-radius: 10px }
+  .heroBtns { flex-direction: column; align-items: flex-start }
+}

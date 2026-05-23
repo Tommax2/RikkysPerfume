@@ -1,0 +1,111 @@
+.footer {
+  position: relative; z-index: 1;
+  background: rgba(59, 10, 69, .98);
+  border-top: 1px solid rgba(181, 124, 255, .22);
+  padding: 5rem 4vw 2.5rem;
+}
+.footerTop {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem;
+  padding-bottom: 4rem; border-bottom: 1px solid rgba(181, 124, 255, .14);
+}
+.footerBrand .logo { gap: .6rem }
+.footerBrand .logoImg { width: 48px; height: 48px }
+.footerBrand .logoName { font-size: 1.25rem }
+
+.footerSub {
+  font-size: .58rem; letter-spacing: .32em; text-transform: uppercase;
+  color: rgba(181,124,255,.75); margin-top: .6rem;
+}
+.footerTagline { color: rgba(230,215,255,.65); font-size: .72rem; letter-spacing: .05em; line-height: 1.85; margin-top: 1.2rem; max-width: 28ch }
+.footerSocials { display: flex; gap: .55rem; margin-top: 1.8rem; flex-wrap: wrap }
+.socialChip {
+  width: 36px; height: 36px; border-radius: 6px;
+  border: 1px solid rgba(181, 124, 255, .25); color: rgba(230,215,255,.6);
+  display: grid; place-items: center; text-decoration: none;
+  transition: border-color .3s, color .3s, background .3s;
+}
+.socialChip:hover { border-color: var(--rose-hi); color: var(--rose-hi); background: rgba(181,124,255,.1) }
+
+.footerLinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem }
+.footerCol h5 {
+  font-size: .57rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--rose-hi); margin-bottom: 1.4rem; opacity: .9;
+}
+.footerCol ul { list-style: none }
+.footerCol li { margin-bottom: .75rem }
+.footerCol a { color: rgba(230,215,255,.6); text-decoration: none; font-size: .68rem; letter-spacing: .06em; transition: color .3s }
+.footerCol a:hover { color: #FAF8FC }
+
+/* ── Newsletter container ──────────────────────────────── */
+.footerNewsletter {
+  border-bottom: 1px solid rgba(181, 124, 255, .14);
+  padding: 2.6rem 0 2.6rem;
+}
+.newsletterInner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  background: rgba(181, 124, 255, .06);
+  border: 1px solid rgba(181, 124, 255, .18);
+  border-radius: 12px;
+  padding: 2rem 2.2rem;
+}
+.newsletterEyebrow {
+  display: block;
+  font-size: .55rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--rose-hi); margin-bottom: .5rem; opacity: .85;
+}
+.newsletterHeading {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.25rem; color: rgba(230, 215, 255, .95);
+  letter-spacing: .02em; margin-bottom: .4rem;
+}
+.newsletterDesc {
+  font-size: .68rem; color: rgba(181, 124, 255, .65);
+  letter-spacing: .04em; line-height: 1.7;
+}
+.newsletterForm {
+  display: flex; gap: .5rem; flex-shrink: 0; flex-wrap: wrap;
+}
+.newsletterInput {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(181, 124, 255, .3);
+  border-radius: 6px;
+  color: rgba(230, 215, 255, .9);
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .05em;
+  padding: .7rem 1.1rem;
+  outline: none; width: 220px;
+  transition: border-color .3s;
+}
+.newsletterInput::placeholder { color: rgba(181,124,255,.4) }
+.newsletterInput:focus { border-color: var(--rose-hi) }
+.newsletterBtn {
+  background: var(--rose); color: #FAF8FC;
+  border: none; border-radius: 6px;
+  font-family: var(--sans); font-size: .68rem; letter-spacing: .12em;
+  text-transform: uppercase; padding: .7rem 1.4rem;
+  cursor: pointer; transition: background .3s, transform .15s;
+  white-space: nowrap;
+}
+.newsletterBtn:hover { background: var(--rose-hi); transform: translateY(-1px) }
+
+.footerBottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; flex-wrap: wrap; gap: 1rem;
+}
+.footerBottom p, .footerBottom a { color: rgba(181,124,255,.6); font-size: .58rem; letter-spacing: .12em; text-decoration: none }
+.footerBottom a:hover { color: rgba(230,215,255,.8) }
+.footerLegal { display: flex; gap: .5rem; align-items: center }
+.footerLegal em { color: rgba(181,124,255,.35); font-style: normal }
+
+@media (max-width: 800px) {
+  .footerTop { grid-template-columns: 1fr }
+  .footerLinks { grid-template-columns: repeat(2, 1fr) }
+  .newsletterInner { flex-direction: column; align-items: flex-start }
+}
+@media (max-width: 480px) {
+  .footerLinks { grid-template-columns: 1fr }
+  .footerBottom { flex-direction: column; align-items: flex-start }
+  .newsletterInput { width: 100% }
+  .newsletterForm { width: 100% }
+  .newsletterBtn { width: 100% }
+}

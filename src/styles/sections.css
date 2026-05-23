@@ -1,0 +1,89 @@
+/* ── Shared label ────────────────────────────────────── */
+.sectionLabel {
+  font-size: .6rem; letter-spacing: .38em; color: var(--rose); text-transform: uppercase;
+  margin-bottom: 1.6rem; display: flex; align-items: center; justify-content: center; gap: 1rem;
+}
+.sectionLabel::before,
+.sectionLabel::after { content: ''; display: inline-block; width: 28px; height: 1px; background: rgba(106,13,173,.35) }
+
+/* ── Story ───────────────────────────────────────────── */
+.story {
+  min-height: 60vh; display: grid; place-items: center; padding: 7rem 4vw;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(106,13,173,.07), transparent 58%),
+    linear-gradient(to bottom, transparent, rgba(237,231,246,.6), transparent);
+  position: relative; z-index: 1; overflow: hidden;
+}
+.story::before {
+  content: '"'; position: absolute;
+  font: 300 22rem/1 var(--serif); color: rgba(106,13,173,.04);
+  top: -3rem; left: 50%; transform: translateX(-50%);
+  pointer-events: none; user-select: none; line-height: .8;
+}
+.storyInner { text-align: center; max-width: 680px; position: relative; z-index: 1 }
+.story h2  { font: 300 clamp(2.2rem, 5.5vw, 4.2rem) / 1.08 var(--serif); margin-bottom: 1.6rem }
+.story em  { color: var(--rose) }
+.storyBody { color: var(--muted); font-size: .8rem; letter-spacing: .06em; line-height: 2 }
+
+/* ── Stats ── dark plum band ─────────────────────────── */
+.stats {
+  display: flex; justify-content: center; align-items: center; padding: 3.5rem 4vw;
+  border-block: 1px solid rgba(106,13,173,.2);
+  background: rgba(59,10,69,.9); position: relative; z-index: 1;
+}
+.stat { text-align: center; padding: 0 4.5vw }
+.stat strong {
+  display: block; font: 300 2.8rem/1 var(--serif); margin-bottom: .55rem;
+  background: linear-gradient(135deg, var(--rose-hi) 10%, var(--rose) 55%, #5A0A9D);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stat span { font-size: .57rem; letter-spacing: .26em; color: rgba(230,215,255,.7); text-transform: uppercase }
+.statDiv   { width: 1px; height: 44px; background: rgba(181,124,255,.25) }
+
+/* ── Journal ─────────────────────────────────────────── */
+.journal {
+  padding: 7rem 4vw 9rem; display: grid; place-items: center;
+  position: relative; z-index: 1; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 110%, rgba(106,13,173,.07), transparent 52%);
+}
+.journal::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(106,13,173,.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 70%);
+}
+.journalInner { text-align: center; max-width: 480px; position: relative; z-index: 1 }
+.journal h2   { font: 300 clamp(2rem, 4.5vw, 3.4rem) / 1 var(--serif); margin-bottom: 1rem }
+.journal p    { color: var(--muted); font-size: .76rem; letter-spacing: .07em; margin-bottom: 2.5rem; line-height: 1.9 }
+
+.journalForm { display: flex; box-shadow: 0 8px 40px rgba(106,13,173,.1) }
+.journalForm input {
+  background: rgba(237,231,246,.9); border: 1px solid rgba(106,13,173,.25); border-right: none;
+  color: var(--text); padding: .9rem 1.3rem; min-width: 250px;
+  font-family: var(--sans); font-size: .64rem; letter-spacing: .1em;
+  outline: none; transition: border-color .3s;
+}
+.journalForm input::placeholder { color: rgba(31,27,36,.35) }
+.journalForm input:focus { border-color: rgba(106,13,173,.5) }
+.journalForm button {
+  background: var(--rose); border: none; padding: .9rem 1.5rem; color: #FAF8FC;
+  font-family: var(--sans); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer; transition: background .3s; white-space: nowrap;
+  position: relative; overflow: hidden;
+}
+.journalForm button::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,.16);
+  transform: translateX(-110%) skewX(-18deg); transition: transform .4s;
+}
+.journalForm button:hover { background: var(--rose-hi) }
+.journalForm button:hover::before { transform: translateX(110%) skewX(-18deg) }
+
+/* ── Toast ───────────────────────────────────────────── */
+.toast {
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 200;
+  background: rgba(59,10,69,.97); border: 1px solid rgba(181,124,255,.5);
+  color: var(--rose-hi); padding: .9rem 1.3rem; font-size: .64rem; letter-spacing: .1em;
+  backdrop-filter: blur(12px); animation: fadeUp .38s ease;
+  box-shadow: 0 8px 32px rgba(106,13,173,.2);
+}
