@@ -6,18 +6,19 @@ const formatNaira = (value) => `${NAIRA}${value.toLocaleString("en-NG")}`;
 export default function CartDrawer({ open, items, onClose, onRemove, onClear, onCheckout }) {
   const total = items.reduce((sum, item) => sum + item.priceValue * item.qty, 0);
 
-  /* lock body scroll while drawer is open */
+  /* lock body scroll — compensate scrollbar width so nav & content don't shift */
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
-      document.body.style.touchAction = "none";
+      const sw = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty("--scrollbar-w", `${sw}px`);
+      document.body.classList.add("scroll-locked");
     } else {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
+      document.body.classList.remove("scroll-locked");
+      document.documentElement.style.setProperty("--scrollbar-w", "0px");
     }
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
+      document.body.classList.remove("scroll-locked");
+      document.documentElement.style.setProperty("--scrollbar-w", "0px");
     };
   }, [open]);
 
