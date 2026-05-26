@@ -83,7 +83,10 @@ export default function App() {
       "Please confirm availability and delivery details. Thank you.",
     ].join("\n");
     window.open(`https://wa.me/2348060858306?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    clearCart();
     setCartOpen(false);
+    setToast("Order sent! Cart cleared.");
+    setTimeout(() => setToast(""), 2400);
   };
 
   const orbs = useMemo(() => Array.from({ length: 5 }), []);
