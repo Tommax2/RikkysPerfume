@@ -3,12 +3,10 @@ const formatNaira = (value) => `${NAIRA}${value.toLocaleString("en-NG")}`;
 
 function buildOrderMessage(cartItems) {
   if (!cartItems.length) return "Hello Rikky's Perfumes! I'd like to place an order.";
-
   const lines = cartItems.map(
-    (item, index) => `${index + 1}. ${item.name} ${item.sub} x${item.qty} - ${formatNaira(item.priceValue * item.qty)}`
+    (item, i) => `${i + 1}. ${item.name} ${item.sub} x${item.qty} - ${formatNaira(item.priceValue * item.qty)}`
   );
   const total = cartItems.reduce((sum, item) => sum + item.priceValue * item.qty, 0);
-
   return [
     "Hello Rikky's Perfumes!",
     "I'd like to place this order:",
@@ -31,7 +29,11 @@ export default function WhatsApp({ cartItems = [] }) {
   return (
     <a
       href={`https://wa.me/${number}?text=${msg}`}
-      className="whatsappBtn"
+      className="whatsappBtn fixed bottom-7 right-7 z-[60] flex items-center gap-[.6rem] rounded-[50px] px-5 py-3 font-sans text-[.63rem] font-semibold tracking-[.1em] text-white no-underline transition-[transform_.3s,box-shadow_.3s,filter_.3s] hover:-translate-y-[3px] hover:scale-[1.03] hover:saturate-[1.08] isolate sm:right-4 sm:bottom-[calc(1rem+env(safe-area-inset-bottom,0px))]"
+      style={{
+        background: "linear-gradient(135deg,#25D366,#1DAE54)",
+        boxShadow: "0 8px 32px rgba(37,211,102,.38)",
+      }}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

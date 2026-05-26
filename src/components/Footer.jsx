@@ -47,22 +47,33 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footerTop">
-        <div className="footerBrand">
-          <a href="#" className="logo">
-            <img src="/logo.jpg" alt="Rikky's Perfumes logo" className="logoImg" />
-            <span className="logoName">RIKKY<em>'S</em></span>
+    <footer
+      className="relative z-[1] border-t border-brand-hi/22 px-[4vw] pb-10 pt-20"
+      style={{ background: "rgba(59,10,69,.98)" }}
+    >
+      {/* Top grid */}
+      <div className="grid grid-cols-1 gap-16 border-b border-brand-hi/14 pb-16 md:grid-cols-[1fr_1.4fr]">
+        {/* Brand */}
+        <div>
+          <a href="#" className="flex items-center gap-[.6rem] no-underline">
+            <img src="/logo.jpg" alt="Rikky's Perfumes logo"
+              className="h-12 w-12 rounded-full border-[1.5px] border-brand-hi/40 object-cover" />
+            <span className="font-serif text-[1.25rem] tracking-[.28em] text-cream">
+              RIKKY<em className="font-light not-italic text-brand-hi">'S</em>
+            </span>
           </a>
-          <p className="footerSub">Perfumes &amp; More</p>
-          <p className="footerTagline">Premium fragrances curated for every occasion. Quality you can smell.</p>
-
-          <div className="footerSocials">
+          <p className="mt-[.6rem] text-[.58rem] uppercase tracking-[.32em] text-brand-hi/75">
+            Perfumes &amp; More
+          </p>
+          <p className="mt-5 max-w-[28ch] text-[.72rem] leading-[1.85] tracking-[.05em] text-brand-hi/65">
+            Premium fragrances curated for every occasion. Quality you can smell.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-[.55rem]">
             {socials.map(({ label, href, icon }) => (
               <a
                 key={label}
                 href={href}
-                className="socialChip"
+                className="grid h-9 w-9 place-items-center rounded-md border border-brand-hi/25 text-brand-hi/60 no-underline transition-[border-color_.3s,color_.3s,background_.3s] hover:border-brand-hi hover:bg-brand-hi/10 hover:text-brand-hi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
@@ -74,13 +85,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav className="footerLinks" aria-label="Footer navigation">
+        {/* Links grid */}
+        <nav
+          className="grid grid-cols-2 gap-8 sm:grid-cols-3"
+          aria-label="Footer navigation"
+        >
           {Object.entries(links).map(([heading, items]) => (
-            <div key={heading} className="footerCol">
-              <h5>{heading}</h5>
-              <ul>
+            <div key={heading}>
+              <h5 className="mb-[1.4rem] text-[.57rem] uppercase tracking-[.28em] text-brand-hi opacity-90">
+                {heading}
+              </h5>
+              <ul className="list-none space-y-3">
                 {items.map((item) => (
-                  <li key={item}><a href="#">{item}</a></li>
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="text-[.68rem] tracking-[.06em] text-brand-hi/60 no-underline transition-colors hover:text-cream"
+                    >
+                      {item}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -88,32 +112,55 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="footerNewsletter">
-        <div className="newsletterInner">
-          <div className="newsletterText">
-            <span className="newsletterEyebrow">Exclusive Circle</span>
-            <h4 className="newsletterHeading">Join Our Fragrance Community</h4>
-            <p className="newsletterDesc">Be first to discover new arrivals, private blends, and members-only offers.</p>
+      {/* Newsletter */}
+      <div className="border-b border-brand-hi/14 py-[2.6rem]">
+        <div
+          className="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-brand-hi/18 px-[2.2rem] py-8"
+          style={{ background: "rgba(181,124,255,.06)" }}
+        >
+          <div>
+            <span className="mb-2 block text-[.55rem] uppercase tracking-[.3em] text-brand-hi opacity-85">
+              Exclusive Circle
+            </span>
+            <h4 className="mb-[.4rem] font-serif text-[1.25rem] tracking-[.02em] text-brand-hi/95">
+              Join Our Fragrance Community
+            </h4>
+            <p className="text-[.68rem] leading-[1.7] tracking-[.04em] text-brand-hi/65">
+              Be first to discover new arrivals, private blends, and members-only offers.
+            </p>
           </div>
-          <form className="newsletterForm" onSubmit={(e) => e.preventDefault()}>
+          <form
+            className="flex flex-wrap gap-2 flex-shrink-0 w-full sm:w-auto"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <input
               type="email"
-              className="newsletterInput"
+              className="min-w-0 flex-1 rounded-md border border-brand-hi/30 bg-white/[.05] px-[1.1rem] py-[.7rem] font-sans text-[.72rem] tracking-[.05em] text-brand-hi/90 outline-none transition-[border-color_.3s] placeholder:text-brand-hi/40 focus:border-brand-hi sm:w-[220px] sm:flex-none"
               placeholder="your@email.com"
               aria-label="Email address"
             />
-            <button type="submit" className="newsletterBtn">Subscribe</button>
+            <button
+              type="submit"
+              className="rounded-md border-none bg-brand px-[1.4rem] py-[.7rem] font-sans text-[.68rem] uppercase tracking-[.12em] text-cream transition-[background_.3s,transform_.15s] hover:-translate-y-px hover:bg-brand-hi whitespace-nowrap cursor-pointer"
+            >
+              Subscribe
+            </button>
           </form>
         </div>
       </div>
 
-      <div className="footerBottom">
-        <p>© 2026 Rikky's Perfumes and More. All rights reserved.</p>
-        <div className="footerLegal">
+      {/* Bottom */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-8">
+        <p className="text-[.58rem] tracking-[.12em] text-brand-hi/60">
+          © 2026 Rikky's Perfumes and More. All rights reserved.
+        </p>
+        <div className="flex items-center gap-2">
           {["Privacy", "Terms", "Shipping"].map((l, i, a) => (
-            <span key={l}>
-              <a href="#">{l}</a>
-              {i < a.length - 1 && <em>·</em>}
+            <span key={l} className="flex items-center gap-2">
+              <a href="#" className="text-[.58rem] tracking-[.12em] text-brand-hi/60 no-underline transition-colors hover:text-brand-hi/80">
+                {l}
+              </a>
+              {i < a.length - 1 && <em className="not-italic text-brand-hi/35">·</em>}
             </span>
           ))}
         </div>

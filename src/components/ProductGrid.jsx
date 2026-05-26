@@ -10,14 +10,14 @@ export default function ProductGrid({ products, onAdd }) {
   return (
     <motion.section
       id="collection"
-      className="grid"
+      className="relative z-[1] grid grid-cols-1 gap-4 bg-transparent px-[1.1rem] pb-5 sm:grid-cols-2 lg:grid-cols-3"
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.05 }}
     >
-      {products.map((product, index) => (
-        <ProductCard key={product.id} product={product} index={index} onAdd={onAdd} />
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} onAdd={onAdd} />
       ))}
     </motion.section>
   );

@@ -1,29 +1,29 @@
 import { useMemo, useState, useEffect } from "react";
 
-import DiscountBanner from "./components/DiscountBanner";
-import Nav            from "./components/Nav";
-import Hero           from "./components/Hero";
-import Marquee        from "./components/Marquee";
-import Benefits       from "./components/Benefits";
-import CategoryBar    from "./components/CategoryBar";
-import ProductGrid    from "./components/ProductGrid";
-import Divider        from "./components/Divider";
-import Testimonials   from "./components/Testimonials";
-import Story          from "./components/Story";
-import Stats          from "./components/Stats";
+import DiscountBanner  from "./components/DiscountBanner";
+import Nav             from "./components/Nav";
+import Hero            from "./components/Hero";
+import Marquee         from "./components/Marquee";
+import Benefits        from "./components/Benefits";
+import CategoryBar     from "./components/CategoryBar";
+import ProductGrid     from "./components/ProductGrid";
+import Divider         from "./components/Divider";
+import Testimonials    from "./components/Testimonials";
+import Story           from "./components/Story";
+import Stats           from "./components/Stats";
 import FeaturedCarousel from "./components/FeaturedCarousel";
-import Journal        from "./components/Journal";
-import Footer         from "./components/Footer";
-import WhatsApp       from "./components/WhatsApp";
-import Toast          from "./components/Toast";
-import CartDrawer     from "./components/CartDrawer";
-import CustomCursor   from "./components/CustomCursor";
-import ScrollTop      from "./components/ScrollTop";
+import Journal         from "./components/Journal";
+import Footer          from "./components/Footer";
+import WhatsApp        from "./components/WhatsApp";
+import Toast           from "./components/Toast";
+import CartDrawer      from "./components/CartDrawer";
+import CustomCursor    from "./components/CustomCursor";
+import ScrollTop       from "./components/ScrollTop";
 
 import products from "./data/products";
 
 export default function App() {
-  const NAIRA = "\u20A6";
+  const NAIRA = "₦";
   const [bannerVisible,  setBannerVisible]  = useState(true);
   const [cartCount,      setCartCount]      = useState(0);
   const [cartBounce,     setCartBounce]     = useState(false);
@@ -32,7 +32,6 @@ export default function App() {
   const [cartOpen,       setCartOpen]       = useState(false);
   const [cartItems,      setCartItems]      = useState([]);
 
-  /* sync banner height CSS variable so nav + hero shift together */
   useEffect(() => {
     document.documentElement.style.setProperty("--banner-h", bannerVisible ? "44px" : "0px");
   }, [bannerVisible]);
@@ -45,7 +44,6 @@ export default function App() {
   const handleAdd = (product) => {
     const name = `${product.name} ${product.sub}`;
     const priceValue = Number(String(product.price).replace(/[^0-9.]/g, ""));
-
     setCartCount((n) => n + 1);
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
@@ -65,7 +63,8 @@ export default function App() {
     setCartCount((n) => Math.max(0, n - target.qty));
   };
 
-  const clearCart = () => { setCartItems([]); setCartCount(0) };
+  const clearCart = () => { setCartItems([]); setCartCount(0); };
+
   const handleCheckout = () => {
     if (cartItems.length === 0) {
       setToast("Add at least one perfume before checkout");
@@ -86,6 +85,7 @@ export default function App() {
     window.open(`https://wa.me/2348060858306?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
     setCartOpen(false);
   };
+
   const orbs = useMemo(() => Array.from({ length: 5 }), []);
 
   return (
@@ -107,7 +107,15 @@ export default function App() {
       <FeaturedCarousel onAdd={handleAdd} />
       <Benefits />
 
-      <section className="collectionShell">
+      {/* Collection shell */}
+      <section
+        className="collectionShell relative z-[1] mx-auto my-9 overflow-hidden rounded-[22px] border border-brand/[.12]"
+        style={{
+          width: "min(1200px,92vw)",
+          background: "linear-gradient(180deg,rgba(255,255,255,.55),rgba(237,231,246,.58))",
+          boxShadow: "0 20px 52px rgba(106,13,173,.08)",
+        }}
+      >
         <CategoryBar active={activeCategory} onChange={setActiveCategory} count={filtered.length} />
         <ProductGrid products={filtered} onAdd={handleAdd} />
       </section>
@@ -137,4 +145,3 @@ export default function App() {
     </main>
   );
 }
-
