@@ -30,7 +30,7 @@ export default function FeaturedCarousel({ onAdd }) {
 
   return (
     <section
-      className="relative overflow-hidden border-b border-brand-hi/10 px-[4vw] pb-12 pt-14"
+      className="relative overflow-hidden border-b border-brand-hi/10 px-4 pb-10 pt-12 xs:px-[4vw]"
       style={{ background: "linear-gradient(180deg,rgba(59,10,69,0) 0%,rgba(59,10,69,.08) 100%)" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
