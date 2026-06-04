@@ -37,3 +37,7 @@ desktop.ini
 .vite/
 .eslintcache
 *.tsbuildinfo
+
+# Claude / AI tools
+.sixth/
+.claude/

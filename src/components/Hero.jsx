@@ -141,38 +141,40 @@ export default function Hero() {
           {/* Product image — no overlay, plain photo */}
           <motion.div
             className="relative z-10"
-            style={{ animation: "float 7s ease-in-out infinite" }}
             initial={{ opacity: 0, y: 40, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div
-              className="overflow-hidden rounded-[28px]"
-              style={{
-                width: "min(340px,38vw)",
-                height: "min(480px,56vh)",
-                boxShadow: "0 48px 100px rgba(59,10,69,.22), 0 0 0 1.5px rgba(181,124,255,.18)",
-              }}
-            >
-              <img
-                src="/EAU%20DE%20PARFUM.jpg"
-                alt="Featured perfume"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-
-            {/* Scent note chips orbiting the frame */}
-            {NOTES.map(({ label, pos }, i) => (
-              <motion.span
-                key={label}
-                className={`absolute ${pos} rounded-full border border-brand/20 bg-white/90 px-3 py-1 text-[.55rem] font-medium uppercase tracking-[.16em] text-brand/80 backdrop-blur-sm shadow-sm`}
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9 + i * 0.15, duration: 0.5, ease: [0.34,1.56,.64,1] }}
+            {/* Inner div owns the float so Framer Motion transforms don't conflict */}
+            <div className="relative" style={{ animation: "float 7s ease-in-out infinite" }}>
+              <div
+                className="overflow-hidden rounded-[28px]"
+                style={{
+                  width: "min(340px,38vw)",
+                  height: "min(480px,56vh)",
+                  boxShadow: "0 48px 100px rgba(59,10,69,.22), 0 0 0 1.5px rgba(181,124,255,.18)",
+                }}
               >
-                {label}
-              </motion.span>
-            ))}
+                <img
+                  src="/EAU%20DE%20PARFUM.jpg"
+                  alt="Featured perfume"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+
+              {/* Scent note chips orbiting the frame */}
+              {NOTES.map(({ label, pos }, i) => (
+                <motion.span
+                  key={label}
+                  className={`absolute ${pos} rounded-full border border-brand/20 bg-white/90 px-3 py-1 text-[.55rem] font-medium uppercase tracking-[.16em] text-brand/80 backdrop-blur-sm shadow-sm`}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.9 + i * 0.15, duration: 0.5, ease: [0.34,1.56,.64,1] }}
+                >
+                  {label}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
 
           {/* Vertical "Est. 2024" */}
@@ -194,7 +196,7 @@ export default function Hero() {
       {/* ─────────────────────────────────────────────────────────
           MOBILE  (< lg)  —  cinematic full-bleed image + text
       ───────────────────────────────────────────────────────── */}
-      <div className="relative flex min-h-screen flex-col lg:hidden">
+      <div className="relative flex min-h-dvh flex-col lg:hidden">
 
         {/* Full-bleed clean product image */}
         <motion.div
@@ -247,7 +249,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Text content */}
-        <div className="relative z-10 flex flex-1 flex-col justify-center px-5 pb-12 pt-3 sm:px-8">
+        <div className="relative z-10 flex flex-1 flex-col justify-center px-4 pb-10 pt-3 xs:px-5 sm:px-8">
           {/* eyebrow */}
           <motion.div
             className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-brand/20 bg-brand/[.07] px-4 py-[.35rem] text-[.55rem] uppercase tracking-[.2em] text-brand"
@@ -283,7 +285,7 @@ export default function Hero() {
 
           {/* discount */}
           <motion.div
-            className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-brand/[.15] bg-brand/[.06] px-4 py-[.52rem] text-[.66rem] tracking-[.04em] text-muted"
+            className="mb-6 inline-flex w-fit flex-wrap items-center gap-2 rounded-full border border-brand/[.15] bg-brand/[.06] px-4 py-[.52rem] text-[.66rem] tracking-[.04em] text-muted"
             {...up(0.56)}
           >
             <span className="rounded-full bg-brand px-3 py-[.18rem] text-[.58rem] font-bold tracking-[.08em] text-cream">
@@ -299,7 +301,7 @@ export default function Hero() {
           </motion.div>
 
           {/* trust badges */}
-          <motion.div className="flex flex-wrap gap-4" {...up(0.72)}>
+          <motion.div className="flex flex-wrap gap-x-4 gap-y-2" {...up(0.72)}>
             {TRUST.map((b) => (
               <div key={b.text} className="flex items-center gap-[.38rem] text-[.58rem] tracking-[.08em] text-muted">
                 <span className="text-[.76rem] text-brand">{b.icon}</span>

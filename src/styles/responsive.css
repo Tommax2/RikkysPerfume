@@ -59,3 +59,18 @@
   .discountPill { flex-direction: column; align-items: flex-start; border-radius: 10px }
   .heroBtns { flex-direction: column; align-items: flex-start }
 }
+
+@media (max-width: 375px) {
+  .collectionShell { width: 100%; border-radius: 0; border-left: none; border-right: none }
+  .grid { gap: .5rem; padding: 0 .55rem .7rem }
+  .meta { padding: .9rem .85rem }
+  .metaTop { gap: .35rem }
+  .meta h3 { font-size: 1.2rem; margin: .3rem 0 .38rem }
+  .meta h4 { font-size: .56rem }
+  .cardBottom { margin-top: .75rem; padding-top: .7rem }
+  .catTab { font-size: .5rem; letter-spacing: .1em; padding: .44rem .65rem }
+  .catCount { font-size: .5rem; padding: .34rem .48rem }
+  .sectionLabel { font-size: .52rem; letter-spacing: .28em; gap: .6rem }
+  .sectionLabel::before, .sectionLabel::after { width: 18px }
+  .footerBottom { gap: .6rem }
+}

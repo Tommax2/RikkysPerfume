@@ -27,14 +27,18 @@ export default function CartDrawer({ open, items, onClose, onRemove, onClear, on
       <div
         className={`fixed inset-0 z-[68] bg-[rgba(15,5,20,.65)] backdrop-blur-[5px] transition-opacity duration-[280ms] ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={onClose}
-        aria-hidden={!open}
+        aria-hidden="true"
+        tabIndex={-1}
       />
 
-      {/* Drawer */}
+      {/* Drawer — inert when closed so focus cannot be trapped inside a hidden panel */}
       <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label="Your cart"
+        inert={open ? undefined : ""}
         className={`fixed inset-y-0 right-0 z-[69] flex w-[min(420px,100vw)] flex-col overflow-hidden border-l border-brand-hi/20 pb-[env(safe-area-inset-bottom,0px)] transition-transform duration-[320ms] [transition-timing-function:cubic-bezier(.4,0,.2,1)] ${open ? "translate-x-0" : "translate-x-[105%]"}`}
         style={{ background: "linear-gradient(165deg,rgba(59,10,69,.99),rgba(30,5,40,.99))" }}
-        aria-hidden={!open}
       >
         {/* Head */}
         <div className="flex items-center justify-between border-b border-brand-hi/18 px-[1.4rem] py-6">

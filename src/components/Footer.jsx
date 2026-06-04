@@ -48,14 +48,14 @@ const socials = [
 export default function Footer() {
   return (
     <footer
-      className="relative z-[1] border-t border-brand-hi/22 px-[4vw] pb-10 pt-20"
+      className="relative z-[1] border-t border-brand-hi/22 px-[4vw] pb-20 pt-12 sm:pb-10 sm:pt-20"
       style={{ background: "rgba(59,10,69,.98)" }}
     >
       {/* Top grid */}
-      <div className="grid grid-cols-1 gap-16 border-b border-brand-hi/14 pb-16 md:grid-cols-[1fr_1.4fr]">
+      <div className="grid grid-cols-1 gap-8 border-b border-brand-hi/14 pb-8 md:gap-16 md:pb-16 md:grid-cols-[1fr_1.4fr]">
         {/* Brand */}
         <div>
-          <a href="#" className="flex items-center gap-[.6rem] no-underline">
+          <a href="/" className="flex items-center gap-[.6rem] no-underline">
             <img src="/logo.jpg" alt="Rikky's Perfumes logo"
               className="h-12 w-12 rounded-full border-[1.5px] border-brand-hi/40 object-cover" />
             <span className="font-serif text-[1.25rem] tracking-[.28em] text-cream">
@@ -68,7 +68,7 @@ export default function Footer() {
           <p className="mt-5 max-w-[28ch] text-[.72rem] leading-[1.85] tracking-[.05em] text-brand-hi/65">
             Premium fragrances curated for every occasion. Quality you can smell.
           </p>
-          <div className="mt-7 flex flex-wrap gap-[.55rem]">
+          <div className="mt-6 flex flex-wrap gap-[.55rem]">
             {socials.map(({ label, href, icon }) => (
               <a
                 key={label}
@@ -87,15 +87,15 @@ export default function Footer() {
 
         {/* Links grid */}
         <nav
-          className="grid grid-cols-2 gap-8 sm:grid-cols-3"
+          className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8"
           aria-label="Footer navigation"
         >
           {Object.entries(links).map(([heading, items]) => (
             <div key={heading}>
-              <h5 className="mb-[1.4rem] text-[.57rem] uppercase tracking-[.28em] text-brand-hi opacity-90">
+              <h5 className="mb-4 text-[.57rem] uppercase tracking-[.28em] text-brand-hi opacity-90">
                 {heading}
               </h5>
-              <ul className="list-none space-y-3">
+              <ul className="list-none space-y-[.7rem]">
                 {items.map((item) => (
                   <li key={item}>
                     <a
@@ -113,35 +113,35 @@ export default function Footer() {
       </div>
 
       {/* Newsletter */}
-      <div className="border-b border-brand-hi/14 py-[2.6rem]">
+      <div className="border-b border-brand-hi/14 py-6 sm:py-[2.6rem]">
         <div
-          className="flex flex-wrap items-center justify-between gap-8 rounded-xl border border-brand-hi/18 px-[2.2rem] py-8"
+          className="flex flex-wrap items-center justify-between gap-5 rounded-xl border border-brand-hi/18 px-5 py-6 sm:gap-8 sm:px-[2.2rem] sm:py-8"
           style={{ background: "rgba(181,124,255,.06)" }}
         >
           <div>
-            <span className="mb-2 block text-[.55rem] uppercase tracking-[.3em] text-brand-hi opacity-85">
+            <span className="mb-1.5 block text-[.55rem] uppercase tracking-[.3em] text-brand-hi opacity-85">
               Exclusive Circle
             </span>
-            <h4 className="mb-[.4rem] font-serif text-[1.25rem] tracking-[.02em] text-brand-hi/95">
+            <h4 className="mb-[.3rem] font-serif text-[1.15rem] tracking-[.02em] text-brand-hi/95 sm:text-[1.25rem]">
               Join Our Fragrance Community
             </h4>
-            <p className="text-[.68rem] leading-[1.7] tracking-[.04em] text-brand-hi/65">
-              Be first to discover new arrivals, private blends, and members-only offers.
+            <p className="text-[.66rem] leading-[1.65] tracking-[.04em] text-brand-hi/65">
+              First to know: new arrivals, restocks, members-only offers.
             </p>
           </div>
           <form
-            className="flex flex-wrap gap-2 flex-shrink-0 w-full sm:w-auto"
+            className="flex w-full gap-2 xs:flex-nowrap sm:w-auto"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
               type="email"
-              className="min-w-0 flex-1 rounded-md border border-brand-hi/30 bg-white/[.05] px-[1.1rem] py-[.7rem] font-sans text-[.72rem] tracking-[.05em] text-brand-hi/90 outline-none transition-[border-color_.3s] placeholder:text-brand-hi/40 focus:border-brand-hi sm:w-[220px] sm:flex-none"
+              className="min-w-0 flex-1 rounded-md border border-brand-hi/30 bg-white/[.05] px-4 py-[.65rem] font-sans text-[.72rem] tracking-[.05em] text-brand-hi/90 outline-none transition-[border-color_.3s] placeholder:text-brand-hi/40 focus:border-brand-hi"
               placeholder="your@email.com"
               aria-label="Email address"
             />
             <button
               type="submit"
-              className="rounded-md border-none bg-brand px-[1.4rem] py-[.7rem] font-sans text-[.68rem] uppercase tracking-[.12em] text-cream transition-[background_.3s,transform_.15s] hover:-translate-y-px hover:bg-brand-hi whitespace-nowrap cursor-pointer"
+              className="rounded-md border-none bg-brand px-5 py-[.65rem] font-sans text-[.68rem] uppercase tracking-[.12em] text-cream transition-[background_.3s,transform_.15s] hover:-translate-y-px hover:bg-brand-hi whitespace-nowrap cursor-pointer"
             >
               Subscribe
             </button>
@@ -150,7 +150,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pt-8">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-6">
         <p className="text-[.58rem] tracking-[.12em] text-brand-hi/60">
           © 2026 Rikky's Perfumes and More. All rights reserved.
         </p>

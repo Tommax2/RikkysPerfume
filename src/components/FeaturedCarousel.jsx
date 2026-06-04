@@ -1,6 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const formatPrice = (price) => {
+  if (price == null) return "";
+  const num = typeof price === "number" ? price : Number(String(price).replace(/[^0-9.]/g, ""));
+  const formatted = isNaN(num) ? String(price) : num.toLocaleString("en-NG");
+  return formatted.startsWith("₦") ? formatted : `₦${formatted}`;
+};
+
 const featured = [
   { id: 1, name: "Khamrah Qahwa", sub: "Lattafa",   notes: "Oud · Coffee · Vanilla",           price: "₦34,000", badge: "Bestseller", accent: "#C9A96E", image: "/EAU%20DE%20PARFUM.jpg" },
   { id: 2, name: "9PM Rebel",     sub: "Afnan",     notes: "Apple · Cardamom · Amber",          price: "₦50,000", badge: "New",        accent: "#C84050", image: "/9pm%20rebel.jpg"         },
@@ -99,7 +106,7 @@ export default function FeaturedCarousel({ onAdd }) {
                   {item.name} <em className="italic text-brand-hi/75">{item.sub}</em>
                 </h3>
                 <div className="flex items-center justify-between">
-                  <strong className="font-serif text-[1.1rem] font-normal text-brand-hi/90">{item.price}</strong>
+                  <strong className="font-serif text-[1.1rem] font-normal text-brand-hi/90">{formatPrice(item.price)}</strong>
                   {isActive && (
                     <button
                       className="flex items-center gap-[.35rem] rounded-md border-none px-[.9rem] py-[.42rem] font-sans text-[.6rem] uppercase tracking-[.1em] text-white transition-[opacity_.2s,transform_.18s] hover:opacity-85 hover:-translate-y-px cursor-pointer"

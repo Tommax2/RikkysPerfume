@@ -3,6 +3,13 @@ import categories from "../data/categories";
 
 const catLabel = (id) => categories.find((c) => c.id === id)?.label ?? "";
 
+const formatPrice = (price) => {
+  if (price == null) return "";
+  const num = typeof price === "number" ? price : Number(String(price).replace(/[^0-9.]/g, ""));
+  const formatted = isNaN(num) ? String(price) : num.toLocaleString("en-NG");
+  return formatted.startsWith("₦") ? formatted : `₦${formatted}`;
+};
+
 const cardVariant = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
@@ -51,8 +58,8 @@ export default function ProductCard({ product, onAdd }) {
       </div>
 
       {/* Meta */}
-      <div className="px-6 py-[1.65rem]">
-        <div className="mb-3 flex items-center justify-between">
+      <div className="meta px-6 py-[1.65rem]">
+        <div className="metaTop mb-3 flex items-center justify-between">
           <p className="text-[.53rem] uppercase tracking-[.26em] text-brand/60">{family}</p>
           <span className="rounded-full border border-brand/25 bg-brand/[.04] px-[.5rem] py-[.2rem] text-[.48rem] uppercase tracking-[.14em] text-brand/70">
             {catLabel(category)}
@@ -64,10 +71,10 @@ export default function ProductCard({ product, onAdd }) {
         </h3>
         <h4 className="text-[.61rem] leading-[1.65] tracking-[.1em] text-muted">{notes}</h4>
 
-        <div className="mt-5 flex items-center justify-between border-t border-brand/[.14] pt-[1.1rem]">
-          <strong className="font-serif text-[1.3rem] font-light text-brand">{price}</strong>
+        <div className="cardBottom mt-5 flex items-center justify-between border-t border-brand/[.14] pt-[1.1rem]">
+          <strong className="font-serif text-[1.3rem] font-light text-brand">{formatPrice(price)}</strong>
           <button
-            className="flex items-center gap-[.45rem] border border-brand/35 bg-transparent px-[.85rem] py-[.52rem] font-sans text-[.57rem] uppercase tracking-[.12em] text-brand transition-[background_.3s,border-color_.3s,color_.3s,transform_.22s] hover:border-brand hover:bg-brand/10 hover:text-brand-hi hover:-translate-y-px cursor-pointer"
+            className="addBtn flex items-center gap-[.45rem] border border-brand/35 bg-transparent px-[.85rem] py-[.52rem] font-sans text-[.57rem] uppercase tracking-[.12em] text-brand transition-[background_.3s,border-color_.3s,color_.3s,transform_.22s] hover:border-brand hover:bg-brand/10 hover:text-brand-hi hover:-translate-y-px cursor-pointer"
             type="button"
             onClick={() => onAdd(product)}
           >

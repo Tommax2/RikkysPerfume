@@ -1,10 +1,24 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+
+const NAV_LINKS = [
+  { to: "/",           label: "Home"       },
+  { to: "/collection", label: "Collection" },
+  { to: "/about",      label: "About"      },
+];
 
 export default function Nav({ cartCount, bounce, onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
   const cartCountText = cartCount > 99 ? "99+" : String(cartCount);
+
+  const linkClass = ({ isActive }) =>
+    `relative text-[.62rem] tracking-[.22em] uppercase no-underline transition-colors duration-300 hover:text-cream
+     after:absolute after:inset-x-0 after:bottom-[-4px] after:h-px after:bg-brand-hi after:transition-transform after:duration-[350ms]
+     ${isActive
+       ? "text-cream after:scale-x-100 after:origin-left"
+       : "text-brand-hi/70 after:scale-x-0 after:origin-left hover:after:scale-x-100"}`;
 
   return (
     <>
@@ -17,8 +31,8 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
         }}
       >
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="flex min-w-0 shrink-0 items-center gap-2 no-underline transition-opacity hover:opacity-85"
           onClick={close}
         >
@@ -30,23 +44,13 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
           <span className="hidden font-serif text-[.88rem] tracking-[.2em] text-cream xs:block sm:text-[1.05rem] sm:tracking-[.25em]">
             RIKKY<em className="font-light not-italic text-brand-hi">'S</em>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden flex-1 items-center justify-center gap-8 list-none md:flex lg:gap-10">
-          {[
-            { href: "#collection", label: "Collection" },
-            { href: "#story",      label: "Story" },
-            { href: "#journal",    label: "Journal" },
-          ].map(({ href, label }) => (
+          {NAV_LINKS.map(({ to, label }) => (
             <li key={label}>
-              <a
-                href={href}
-                className="relative text-[.62rem] tracking-[.22em] uppercase text-brand-hi/70 no-underline transition-colors duration-300 hover:text-cream
-                  after:absolute after:inset-x-0 after:bottom-[-4px] after:h-px after:bg-brand-hi after:scale-x-0 after:origin-left after:transition-transform after:duration-[350ms] hover:after:scale-x-100"
-              >
-                {label}
-              </a>
+              <NavLink to={to} end={to === "/"} className={linkClass}>{label}</NavLink>
             </li>
           ))}
         </ul>
@@ -91,25 +95,27 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
         {menuOpen && (
           <>
             <motion.div
+              key="menu-backdrop"
               className="fixed inset-0 z-[55] bg-[rgba(10,3,14,.6)] backdrop-blur-[4px]"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={close}
             />
             <motion.div
+              key="menu-panel"
               className="fixed inset-y-0 right-0 z-[56] flex w-[min(300px,85vw)] flex-col overflow-y-auto border-l border-brand-hi/20 bg-plum px-6 pb-10 pt-5"
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
             >
               {/* Menu header */}
               <div className="mb-8 flex items-center justify-between">
-                <a href="#" className="flex items-center gap-2 no-underline" onClick={close}>
+                <Link to="/" className="flex items-center gap-2 no-underline" onClick={close}>
                   <img src="/logo.jpg" alt="Rikky's"
                     className="h-8 w-8 rounded-full border border-brand-hi/40 object-cover" />
                   <span className="font-serif text-sm tracking-[.2em] text-cream">
                     RIKKY<em className="font-light not-italic text-brand-hi">'S</em>
                   </span>
-                </a>
+                </Link>
                 <button
                   type="button"
                   className="grid h-8 w-8 cursor-pointer place-items-center rounded border border-brand-hi/30 bg-transparent text-sm text-brand-hi/70 transition-[background_.2s,color_.2s] hover:bg-brand-hi/15 hover:text-cream"
@@ -122,23 +128,19 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
 
               {/* Nav links */}
               <ul className="flex flex-1 flex-col list-none">
-                {[
-                  { href: "#collection", label: "Collection" },
-                  { href: "#story",      label: "Story" },
-                  { href: "#journal",    label: "Journal" },
-                ].map(({ href, label }, i) => (
+                {NAV_LINKS.map(({ to, label }, i) => (
                   <motion.li
                     key={label}
                     initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.08 + i * 0.07 }}
                   >
-                    <a
-                      href={href}
+                    <Link
+                      to={to}
                       onClick={close}
                       className="block border-b border-brand-hi/10 py-4 font-serif text-[1.6rem] font-light tracking-[.06em] text-brand-hi/85 no-underline transition-colors hover:text-brand-hi"
                     >
                       {label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -147,11 +149,11 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
               <motion.div
                 className="mt-6 flex flex-col gap-2"
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.32 }}
+                transition={{ delay: 0.28 }}
               >
-                <a href="#collection" className="cta block text-center text-sm" onClick={close}>
+                <Link to="/collection" className="cta block text-center text-sm" onClick={close}>
                   Shop Now
-                </a>
+                </Link>
                 <button
                   type="button"
                   className="flex w-full items-center justify-center gap-2 border border-brand-hi/40 bg-brand-hi/10 py-[.52rem] font-sans text-[.62rem] tracking-[.12em] text-cream cursor-pointer transition-[background_.3s] hover:bg-brand-hi/20"

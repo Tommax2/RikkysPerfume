@@ -32,14 +32,14 @@ export default function Journal() {
         </motion.p>
 
         <motion.form
-          className="flex shadow-[0_8px_40px_rgba(106,13,173,.1)]"
+          className="flex flex-col shadow-[0_8px_40px_rgba(106,13,173,.1)] xs:flex-row"
           onSubmit={(e) => e.preventDefault()}
           {...fadeUp(0.32)}
         >
           <input
             placeholder="your@email.com"
             type="email"
-            className="min-w-0 flex-1 border border-r-0 border-brand/25 bg-deep/90 px-5 py-[.9rem] font-sans text-[.64rem] tracking-[.1em] text-ink outline-none transition-[border-color_.3s] placeholder:text-ink/35 focus:border-brand/50 sm:min-w-[250px]"
+            className="min-w-0 flex-1 border border-brand/25 bg-deep/90 px-5 py-[.9rem] font-sans text-[.64rem] tracking-[.1em] text-ink outline-none transition-[border-color_.3s] placeholder:text-ink/35 focus:border-brand/50 xs:border-r-0 sm:min-w-[250px]"
           />
           <button
             type="submit"
