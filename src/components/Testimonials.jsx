@@ -23,7 +23,7 @@ const card = { hidden: { opacity: 0, y: 38 }, show: { opacity: 1, y: 0, transiti
 export default function Testimonials() {
   return (
     <section
-      className="relative z-[1] px-4 py-14 xs:px-[4vw] sm:py-28 text-center"
+      className="testimonialsSection relative z-[1] px-[4vw] py-28 text-center"
       style={{ background: "radial-gradient(ellipse at 50% 100%,rgba(106,13,173,.06),transparent 60%)" }}
     >
       <p className="sectionLabel">Happy Customers</p>

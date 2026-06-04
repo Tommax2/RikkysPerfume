@@ -13,7 +13,7 @@ const card = { hidden: { opacity: 0, y: 36 }, show: { opacity: 1, y: 0, transiti
 export default function Benefits() {
   return (
     <section
-      className="relative z-[1] px-4 py-14 xs:px-[4vw] sm:py-24"
+      className="benefitsSection relative z-[1] px-[4vw] py-24"
       style={{ background: "radial-gradient(ellipse at 50% 0%,rgba(106,13,173,.05),transparent 60%)" }}
     >
       <p className="sectionLabel">Why Choose Rikky's</p>

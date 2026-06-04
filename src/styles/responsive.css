@@ -74,3 +74,63 @@
   .sectionLabel::before, .sectionLabel::after { width: 18px }
   .footerBottom { gap: .6rem }
 }
+
+/* ════════════════════════════════════════════════════════
+   PHONE SECTIONS — all section padding / spacing overrides
+   Applies at ≤ 430px (below the xs: Tailwind breakpoint)
+════════════════════════════════════════════════════════ */
+@media (max-width: 430px) {
+
+  /* ── Discount banner: reduce side padding so text fits ── */
+  .discountBanner { padding-left: 1.5rem; padding-right: 1.5rem }
+
+  /* ── All content sections: minimum 16px horizontal padding ── */
+  .featSection,
+  .benefitsSection,
+  .testimonialsSection,
+  .story,
+  .statsSection,
+  .journalSection,
+  footer {
+    padding-left:  1rem;
+    padding-right: 1rem;
+  }
+
+  /* ── Vertical padding: cut large desktop values in half ── */
+  .featSection        { padding-top: 3rem;    padding-bottom: 2.5rem  }
+  .benefitsSection    { padding-top: 3.5rem;  padding-bottom: 3.5rem  }
+  .testimonialsSection{ padding-top: 3.5rem;  padding-bottom: 3.5rem  }
+  .story              { padding-top: 3.5rem;  padding-bottom: 3.5rem  }
+  .statsSection       { padding-top: 2.5rem;  padding-bottom: 2.5rem  }
+  .journalSection     { padding-top: 3.5rem;  padding-bottom: 5rem    }
+  footer              { padding-top: 2.5rem;  padding-bottom: 4rem    }
+
+  /* ── Section headings: tighten bottom margin ── */
+  .testimonialsSection h2 { margin-bottom: 2rem  }
+  .benefitsSection h2,
+  .testimonialsSection h2 { font-size: clamp(1.6rem, 7vw, 2.4rem) }
+
+  /* ── Testimonial cards: reduce padding on small phones ── */
+  .testimonialsSection .md\:grid-cols-3 > div { padding: 1.4rem }
+
+  /* ── Benefits cards: reduce padding ── */
+  .benefitsSection [class*="px-"] { padding-left: 1.2rem; padding-right: 1.2rem }
+
+  /* ── Stats: reduce horizontal gap between stat items ── */
+  .statsSection > div { padding-left: 1.2rem; padding-right: 1.2rem }
+
+  /* ── Footer newsletter form: stack on tiny screens ── */
+  footer form { flex-direction: column }
+  footer form input  { border-right: 1px solid rgba(181,124,255,.3); border-bottom: none }
+
+  /* ── Footer links grid: single column ── */
+  footer nav { grid-template-columns: 1fr 1fr }
+}
+
+/* ════════════════════════════════════════════════════════
+   NAV — phone-specific overrides
+════════════════════════════════════════════════════════ */
+@media (max-width: 430px) {
+  /* Ensure nav doesn't clip items on tiny phones */
+  nav.fixed { padding-left: .75rem; padding-right: .75rem }
+}

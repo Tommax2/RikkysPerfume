@@ -22,7 +22,7 @@ export default function DiscountBanner({ onClose }) {
   const { d, h, m, s } = useCountdown(TARGET);
 
   return (
-    <div className="discountBanner fixed inset-x-0 top-0 z-[60] flex h-11 items-center justify-center overflow-hidden px-6 xs:px-12 gap-[.7rem]"
+    <div className="discountBanner fixed inset-x-0 top-0 z-[60] flex h-11 items-center justify-center overflow-hidden px-12 gap-[.7rem]"
       style={{ background: "linear-gradient(90deg,#3B0A45 0%,#5a0e80 50%,#3B0A45 100%)" }}
     >
       {/* shimmer handled by ::before in global.css */}

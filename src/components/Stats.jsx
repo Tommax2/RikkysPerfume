@@ -11,7 +11,7 @@ const stats = [
 export default function Stats() {
   return (
     <section
-      className="relative z-[1] flex flex-wrap items-center justify-center gap-y-8 border-y border-brand/20 px-[4vw] py-14"
+      className="statsSection relative z-[1] flex flex-wrap items-center justify-center gap-y-8 border-y border-brand/20 px-[4vw] py-14"
       style={{ background: "rgba(59,10,69,.9)" }}
     >
       {stats.map(({ value, label }, i) => (
