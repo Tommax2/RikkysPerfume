@@ -20,7 +20,7 @@ export default function ProductGrid({ products, onAdd }) {
   return (
     <motion.section
       id="collection"
-      className="relative z-[1] grid grid-cols-1 gap-4 bg-transparent px-[1.1rem] pb-5 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid relative z-[1] gap-3 bg-transparent px-[1.1rem] pb-5 grid-cols-2 lg:grid-cols-3"
       variants={container}
       initial="hidden"
       whileInView="show"

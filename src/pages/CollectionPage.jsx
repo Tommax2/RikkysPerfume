@@ -110,7 +110,7 @@ export default function CollectionPage() {
 
       {/* Collection shell */}
       <div
-        className="mx-auto mb-16 mt-4 overflow-hidden rounded-[14px] border border-brand/[.12] sm:rounded-[22px]"
+        className="collectionShell mx-auto mb-16 mt-4 overflow-hidden rounded-[14px] border border-brand/[.12] sm:rounded-[22px]"
         style={{
           width: "min(1200px,95vw)",
           background: "linear-gradient(180deg,rgba(255,255,255,.55),rgba(237,231,246,.58))",
