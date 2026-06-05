@@ -17,7 +17,7 @@ html {
   max-width: 100%;
   overflow-x: hidden;
   overscroll-behavior-x: none;
-  overscroll-behavior-y: none;
+  overflow-y: auto;
   scroll-padding-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
 }
 
@@ -34,7 +34,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   overscroll-behavior-x: none;
-  overscroll-behavior-y: none;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
 }
 body.scroll-locked {
