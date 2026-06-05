@@ -51,14 +51,16 @@ export default function Layout({
       <Toast message={toast} />
       <ScrollTop />
       <CustomCursor />
-      <CartDrawer
-        open={cartOpen}
-        items={cartItems}
-        onClose={onCartClose}
-        onRemove={onRemove}
-        onClear={onClear}
-        onCheckout={onCheckout}
-      />
+      {cartOpen && (
+        <CartDrawer
+          open={cartOpen}
+          items={cartItems}
+          onClose={onCartClose}
+          onRemove={onRemove}
+          onClear={onClear}
+          onCheckout={onCheckout}
+        />
+      )}
     </>
   );
 }

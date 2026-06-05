@@ -14,7 +14,10 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
 html {
-  overflow-x: clip;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
   scroll-padding-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
 }
 
@@ -28,14 +31,23 @@ body {
   color: #1F1B24;
   font-family: var(--sans);
   font-size: 16px;
-  overflow-x: clip;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
   -webkit-font-smoothing: antialiased;
 }
 body.scroll-locked {
   overflow: hidden;
   padding-right: var(--scrollbar-w, 0px);
 }
-main { width: 100%; position: relative; z-index: 1 }
+#root {
+  max-width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+main { width: 100%; max-width: 100%; position: relative; z-index: 1; overflow-x: hidden }
 
 /* ── Custom cursor ───────────────────────────────── */
 @media (pointer: fine) {
