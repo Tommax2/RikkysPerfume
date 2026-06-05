@@ -1,6 +1,6 @@
 .hero {
   min-height: 100vh;
-  padding: calc(6rem + var(--banner-h, 44px)) 4vw 4rem;
+  padding: 6rem 4vw 4rem;
   display: grid; grid-template-columns: 1.1fr .9fr;
   align-items: center;
   position: relative; gap: 3rem;
