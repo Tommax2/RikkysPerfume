@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -11,6 +11,21 @@ const NAV_LINKS = [
 export default function Nav({ cartCount, bounce, onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      const sw = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty("--scrollbar-w", `${sw}px`);
+      document.body.classList.add("scroll-locked");
+    } else {
+      document.body.classList.remove("scroll-locked");
+      document.documentElement.style.setProperty("--scrollbar-w", "0px");
+    }
+    return () => {
+      document.body.classList.remove("scroll-locked");
+      document.documentElement.style.setProperty("--scrollbar-w", "0px");
+    };
+  }, [menuOpen]);
   const cartCountText = cartCount > 99 ? "99+" : String(cartCount);
 
   const linkClass = ({ isActive }) =>

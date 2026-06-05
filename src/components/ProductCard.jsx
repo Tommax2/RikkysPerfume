@@ -41,8 +41,8 @@ export default function ProductCard({ product, onAdd }) {
       {/* Image area */}
       <div className="img">
         <div className="imgGlow" />
-        {badge && <b className="badge">{badge}</b>}
-        <span className="num">{String(id).padStart(2, "0")}</span>
+        {!image && badge && <b className="badge">{badge}</b>}
+        {!image && <span className="num">{String(id).padStart(2, "0")}</span>}
         {image ? (
           <img className="productPhoto" src={image} alt={`${name} ${sub}`} loading="lazy" />
         ) : (
