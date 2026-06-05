@@ -49,6 +49,13 @@ body.scroll-locked {
 
 main { width: 100%; max-width: 100%; position: relative; z-index: 1; overflow-x: hidden }
 
+footer,
+.collectionShell,
+.statsSection {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* ── Custom cursor ───────────────────────────────── */
 @media (pointer: fine) {
   * { cursor: none !important }

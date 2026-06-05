@@ -81,7 +81,7 @@ export default function CollectionPage() {
   const hasFilters = search.trim() !== "" || sort !== "default" || category !== "all";
 
   return (
-    <section className="relative z-[1] min-h-screen pt-[calc(var(--banner-h,44px)+var(--nav-h,58px))]">
+    <section className="relative z-[1] min-h-screen max-w-full overflow-x-hidden pt-[calc(var(--banner-h,44px)+var(--nav-h,58px))]">
 
       {/* Page header */}
       <div className="px-4 pb-6 pt-10 text-center sm:px-[4vw] sm:pt-14">
