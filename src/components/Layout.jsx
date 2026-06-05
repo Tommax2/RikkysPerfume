@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { Outlet } from "react-router-dom";
+import { useMemo, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
 import Nav           from "./Nav";
 import Footer        from "./Footer";
@@ -18,7 +18,12 @@ export default function Layout({
   toast,
   onAdd,
 }) {
+  const { pathname } = useLocation();
   const orbs = useMemo(() => Array.from({ length: 5 }), []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
 
   return (
     <>
