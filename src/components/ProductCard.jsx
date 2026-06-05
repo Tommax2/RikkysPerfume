@@ -44,7 +44,17 @@ export default function ProductCard({ product, onAdd }) {
         {!image && badge && <b className="badge">{badge}</b>}
         {!image && <span className="num">{String(id).padStart(2, "0")}</span>}
         {image ? (
-          <img className="productPhoto" src={image} alt={`${name} ${sub}`} loading="lazy" />
+          <img
+            className="productPhoto"
+            src={image}
+            alt={`${name} ${sub}`}
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.className = "productMockup";
+              e.currentTarget.src = `/mockups/${category}-card.svg`;
+            }}
+          />
         ) : (
           <img className="productMockup" src={`/mockups/${category}-card.svg`} alt={`${name} ${sub}`} loading="lazy" />
         )}

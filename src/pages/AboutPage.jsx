@@ -33,7 +33,7 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="relative z-[1] pt-[calc(var(--banner-h,44px)+56px)]">
+    <div className="relative z-[1] pt-[calc(var(--banner-h,44px)+var(--nav-h,58px))]">
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <section

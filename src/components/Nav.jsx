@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -9,8 +9,29 @@ const NAV_LINKS = [
 ];
 
 export default function Nav({ cartCount, bounce, onCartClick }) {
+  const navRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty("--nav-h", `${nav.offsetHeight}px`);
+    };
+
+    setNavHeight();
+
+    if (!("ResizeObserver" in window)) {
+      window.addEventListener("resize", setNavHeight);
+      return () => window.removeEventListener("resize", setNavHeight);
+    }
+
+    const observer = new ResizeObserver(setNavHeight);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -38,6 +59,7 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
   return (
     <>
       <nav
+        ref={navRef}
         className="fixed left-0 z-50 flex items-center justify-between gap-2 overflow-x-clip border-b border-brand-hi/20 px-3 py-3 backdrop-blur-[18px] transition-[top_.3s_ease] xs:gap-3 xs:px-[4vw] xs:py-[.95rem] sm:px-6"
         style={{
           top: "var(--banner-h,44px)",

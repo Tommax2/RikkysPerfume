@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const TARGET = new Date("2026-12-31T23:59:59");
 
@@ -19,10 +19,33 @@ function useCountdown(target) {
 }
 
 export default function DiscountBanner({ onClose }) {
+  const bannerRef = useRef(null);
   const { d, h, m, s } = useCountdown(TARGET);
 
+  useEffect(() => {
+    const banner = bannerRef.current;
+    if (!banner) return;
+
+    const setBannerHeight = () => {
+      document.documentElement.style.setProperty("--banner-h", `${banner.offsetHeight}px`);
+    };
+
+    setBannerHeight();
+
+    if (!("ResizeObserver" in window)) {
+      window.addEventListener("resize", setBannerHeight);
+      return () => window.removeEventListener("resize", setBannerHeight);
+    }
+
+    const observer = new ResizeObserver(setBannerHeight);
+    observer.observe(banner);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="discountBanner fixed inset-x-0 top-0 z-[60] flex h-11 items-center justify-center overflow-hidden px-12 gap-[.7rem]"
+    <div
+      ref={bannerRef}
+      className="discountBanner fixed inset-x-0 top-0 z-[60] flex min-h-11 items-center justify-center overflow-hidden px-11 py-2 gap-[.7rem] sm:px-12"
       style={{ background: "linear-gradient(90deg,#3B0A45 0%,#5a0e80 50%,#3B0A45 100%)" }}
     >
       {/* shimmer handled by ::before in global.css */}

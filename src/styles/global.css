@@ -6,6 +6,7 @@
 /* ── Dynamic CSS variables set / read by JS ───────── */
 :root {
   --banner-h:   44px;
+  --nav-h: 58px;
   --scrollbar-w: 0px;
   --serif: "Cormorant Garamond", serif;
   --sans:  "Josefin Sans", sans-serif;
@@ -14,7 +15,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
 html {
   overflow-x: clip;
-  scroll-padding-top: calc(var(--banner-h, 44px) + 58px);
+  scroll-padding-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
+}
+
+[id] {
+  scroll-margin-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
 }
 body {
   background: #FAF8FC;

@@ -90,6 +90,7 @@ export default function FeaturedCarousel({ onAdd }) {
                   alt={`${item.name} ${item.sub}`}
                   className={`block h-full w-full object-cover object-top transition-transform duration-[600ms] ${isActive ? "hover:scale-[1.04]" : ""}`}
                   loading="lazy"
+                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = ""; e.currentTarget.style.display = "none"; }}
                 />
                 <span
                   className="absolute right-3 top-3 rounded-[30px] px-[.65rem] py-[.22rem] text-[.5rem] font-medium uppercase tracking-[.18em] text-white"
