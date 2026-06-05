@@ -8,10 +8,8 @@ import Toast         from "./Toast";
 import CartDrawer    from "./CartDrawer";
 import CustomCursor  from "./CustomCursor";
 import ScrollTop     from "./ScrollTop";
-import DiscountBanner from "./DiscountBanner";
 
 export default function Layout({
-  bannerVisible, onCloseBanner,
   cartCount, cartBounce, onCartClick,
   cartOpen, onCartClose,
   cartItems, onRemove, onClear, onCheckout,
@@ -39,9 +37,6 @@ export default function Layout({
           <div key={i} className="orb" style={{ "--i": i }} />
         ))}
       </div>
-
-      {bannerVisible && <DiscountBanner onClose={onCloseBanner} />}
-
       <Nav
         cartCount={cartCount}
         bounce={cartBounce}

@@ -5,7 +5,7 @@
 
 /* ── Dynamic CSS variables set / read by JS ───────── */
 :root {
-  --banner-h:   44px;
+  --banner-h: 0px;
   --nav-h: 58px;
   --scrollbar-w: 0px;
   --serif: "Cormorant Garamond", serif;
@@ -18,13 +18,13 @@ html {
   overflow-x: hidden;
   overscroll-behavior-x: none;
   overflow-y: auto;
-  scroll-padding-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
+  scroll-padding-top: calc(var(--nav-h, 58px) + 12px);
 }
 
 #collection,
 #story,
 #journal {
-  scroll-margin-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
+  scroll-margin-top: calc(var(--nav-h, 58px) + 12px);
 }
 body {
   background: #FAF8FC;
@@ -315,6 +315,37 @@ footer,
 }
 @media (prefers-reduced-motion: reduce) { .marqueeTrack { animation: none } }
 
+@media (max-width: 768px) {
+  .bg-orbs {
+    display: none;
+  }
+
+  .marqueeTrack,
+  .tagDot,
+  .cartBtn.bounce,
+  .catTab.active {
+    animation: none;
+  }
+
+  .card {
+    animation: none;
+    box-shadow: 0 4px 14px rgba(106,13,173,.06);
+    will-change: auto;
+  }
+
+  .imgGlow,
+  .shimmerOverlay,
+  .whatsappBtn::after {
+    display: none;
+  }
+
+  .scrollTop,
+  nav.fixed {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
 /* ── Featured Carousel track & card effects ───────── */
 .fcarouselBar {
   position: absolute; bottom: 0; left: 0;
@@ -356,13 +387,6 @@ footer,
 }
 @media (max-width: 480px) {
   .whatsappBtn span { display: none }
-}
-
-/* ── Discount banner shimmer ──────────────────────── */
-.discountBanner::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(181,124,255,.18) 50%, transparent 100%);
-  animation: shimmerSweep 2.8s linear infinite;
 }
 
 /* ── Story section background quote ──────────────── */

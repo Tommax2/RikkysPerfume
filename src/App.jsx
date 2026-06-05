@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Layout         from "./components/Layout";
@@ -9,18 +9,11 @@ import AboutPage      from "./pages/AboutPage";
 const NAIRA = "₦";
 
 export default function App() {
-  const [bannerVisible, setBannerVisible] = useState(true);
   const [cartCount,     setCartCount]     = useState(0);
   const [cartBounce,    setCartBounce]    = useState(false);
   const [toast,         setToast]         = useState("");
   const [cartOpen,      setCartOpen]      = useState(false);
   const [cartItems,     setCartItems]     = useState([]);
-
-  useEffect(() => {
-    if (!bannerVisible) {
-      document.documentElement.style.setProperty("--banner-h", "0px");
-    }
-  }, [bannerVisible]);
 
   const onAdd = (product) => {
     const name       = `${product.name} ${product.sub}`;
@@ -79,8 +72,6 @@ export default function App() {
   };
 
   const layoutProps = {
-    bannerVisible,
-    onCloseBanner: () => setBannerVisible(false),
     cartCount,
     cartBounce,
     onCartClick:  () => setCartOpen((v) => !v),

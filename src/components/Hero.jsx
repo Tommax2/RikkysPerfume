@@ -25,7 +25,6 @@ export default function Hero() {
   return (
     <section
       className="relative overflow-hidden bg-page"
-      style={{ paddingTop: "var(--banner-h,44px)" }}
     >
       {/* grid-noise background */}
       <div className="heroBg" aria-hidden><div className="noise" /></div>
@@ -38,7 +37,7 @@ export default function Hero() {
         {/* ── LEFT text panel ── */}
         <div
           className="relative z-10 flex flex-col justify-center px-[6vw] py-28"
-          style={{ paddingTop: "calc(7rem + var(--banner-h,44px))" }}
+          style={{ paddingTop: "7rem" }}
         >
           {/* eyebrow */}
           <motion.div

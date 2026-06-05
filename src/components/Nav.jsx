@@ -62,7 +62,7 @@ export default function Nav({ cartCount, bounce, onCartClick }) {
         ref={navRef}
         className="fixed left-0 z-50 flex items-center justify-between gap-2 overflow-x-clip border-b border-brand-hi/20 px-3 py-3 backdrop-blur-[18px] transition-[top_.3s_ease] xs:gap-3 xs:px-[4vw] xs:py-[.95rem] sm:px-6"
         style={{
-          top: "var(--banner-h,44px)",
+          top: 0,
           right: "var(--scrollbar-w,0px)",
           background: "rgba(59,10,69,.96)",
         }}

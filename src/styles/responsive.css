@@ -120,9 +120,6 @@
 ════════════════════════════════════════════════════════ */
 @media (max-width: 430px) {
 
-  /* ── Discount banner: reduce side padding so text fits ── */
-  .discountBanner { padding-left: 1.5rem; padding-right: 1.5rem }
-
   /* ── All content sections: minimum 16px horizontal padding ── */
   .featSection,
   .benefitsSection,

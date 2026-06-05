@@ -5,6 +5,8 @@ export default function CustomCursor() {
   const ring = useRef(null);
 
   useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
     let rx = 0, ry = 0;
     let raf;
 

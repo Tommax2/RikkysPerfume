@@ -1,5 +1,5 @@
 :root {
-  --banner-h: 44px; /* updated by JS when banner is dismissed */
+  --banner-h: 0px;
 
   /* ── Brand palette: Royal Purple ────────────────────── */
   --black:   #FAF8FC;   /* page background */
