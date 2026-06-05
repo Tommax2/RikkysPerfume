@@ -25,6 +25,13 @@ export default function Layout({
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
+  useEffect(() => {
+    if (!cartOpen) {
+      document.body.classList.remove("scroll-locked");
+      document.documentElement.style.setProperty("--scrollbar-w", "0px");
+    }
+  }, [pathname, cartOpen]);
+
   return (
     <>
       <div className="bg-orbs" aria-hidden>
