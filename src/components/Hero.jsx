@@ -196,7 +196,7 @@ export default function Hero() {
       {/* ─────────────────────────────────────────────────────────
           MOBILE  (< lg)  —  cinematic full-bleed image + text
       ───────────────────────────────────────────────────────── */}
-      <div className="relative flex min-h-dvh flex-col lg:hidden">
+      <div className="relative flex min-h-screen flex-col lg:hidden">
 
         {/* Full-bleed clean product image */}
         <motion.div
