@@ -16,18 +16,18 @@ const VALUES = [
   },
   {
     icon: "🤍",
-    title: "Made with Care",
-    desc: "Rikky personally curates every scent. If she wouldn't wear it, it doesn't make the shelf.",
+    title: "Customer First",
+    desc: "Every recommendation is chosen around what the customer wants to smell, feel, and remember.",
   },
   {
     icon: "🚀",
-    title: "Fast Delivery",
-    desc: "Same-day delivery in Ilorin. Nationwide shipping across Nigeria, fast and reliable.",
+    title: "Smooth Delivery",
+    desc: "Orders are handled quickly, packed with care, and followed up so customers always feel informed.",
   },
   {
     icon: "💬",
-    title: "Always Here",
-    desc: "Real humans on WhatsApp, 24/7. Order, ask questions, or just chat about fragrance.",
+    title: "Happy Support",
+    desc: "Real help on WhatsApp before and after every order, from scent questions to delivery updates.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
             {...up(0.05)}
           >
             <span className="tagDot" />
-            Born in Ilorin, Loved Everywhere
+            Loved by Customers
           </motion.div>
 
           <motion.h1
@@ -73,9 +73,9 @@ export default function AboutPage() {
             className="mx-auto max-w-[46ch] text-[.8rem] leading-[2] tracking-[.05em] text-muted"
             {...up(0.3)}
           >
-            It started with a diffuser, two bottles of raw oud, and one rule — only sell
-            something she'd wear herself. No lab formulas. No focus groups. Just instinct,
-            obsession, and the stubborn belief that real fragrance should feel personal.
+            Rikky's Perfumes is built around one simple promise: help every customer find a
+            fragrance they feel confident wearing. Every scent, price, and recommendation is
+            chosen to make shopping easy, honest, and satisfying.
           </motion.p>
         </div>
       </section>
@@ -112,9 +112,9 @@ export default function AboutPage() {
             </motion.p>
 
             {[
-              "Rikky's Perfumes started the way the best things do — out of pure love. Rikky was tired of paying premium prices for fragrances that didn't last, buying from stores where authenticity was a gamble, and being told that luxury scents were out of reach for most Nigerians.",
-              "So she built something different. A curated house where every bottle is personally vetted, every price is honest, and every customer is treated like a friend. From reed diffusers for the home to deep oriental oud for special occasions — Rikky's has a scent for every chapter of your life.",
-              "Today, Rikky's ships across Nigeria with the same passion that started in that small kitchen in Ilorin. The mission hasn't changed: make world-class fragrance accessible, personal, and real.",
+              "Rikky's Perfumes exists to make fragrance shopping feel simple, trusted, and personal. Customers should never have to guess if a bottle is authentic, if the price is fair, or if the scent will match what they want.",
+              "That is why every product is carefully selected, every order is handled with attention, and every customer gets real help before they buy. From everyday scents to memorable gifts, the goal is always the same: a happy customer who feels good about their choice.",
+              "The brand grows through satisfied customers, repeat orders, and honest recommendations. Rikky's is not only about selling perfume; it is about helping people find scents they love and service they can trust.",
             ].map((text, i) => (
               <motion.p
                 key={i}

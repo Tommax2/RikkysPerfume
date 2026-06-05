@@ -17,7 +17,9 @@ export default function App() {
   const [cartItems,     setCartItems]     = useState([]);
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--banner-h", bannerVisible ? "44px" : "0px");
+    if (!bannerVisible) {
+      document.documentElement.style.setProperty("--banner-h", "0px");
+    }
   }, [bannerVisible]);
 
   const onAdd = (product) => {

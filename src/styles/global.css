@@ -18,7 +18,9 @@ html {
   scroll-padding-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
 }
 
-[id] {
+#collection,
+#story,
+#journal {
   scroll-margin-top: calc(var(--banner-h, 44px) + var(--nav-h, 58px) + 12px);
 }
 body {
