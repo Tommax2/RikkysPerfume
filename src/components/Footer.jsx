@@ -48,7 +48,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer
-      className="relative z-[1] overflow-hidden border-t border-brand-hi/22 px-[4vw] pb-20 pt-12 sm:pb-10 sm:pt-20"
+      className="relative z-[1] overflow-hidden border-t border-brand-hi/22 px-[4vw] pb-8 pt-12 sm:pb-10 sm:pt-20"
       style={{ background: "rgba(59,10,69,1)" }}
     >
       {/* Top grid */}
